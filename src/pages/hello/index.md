@@ -1,6 +1,6 @@
 ---
-title: Why Do React Elements Have a $$typeof Property?
-date: '2018-12-03'
+title: Hello
+date: '2019-02-14'
 spoiler: It has something to do with security.
 ---
 

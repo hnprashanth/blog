@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: 'Overreacted',
-    author: 'Dan Abramov',
-    description: 'Personal blog by Dan Abramov. I explain with words and code.',
-    siteUrl: 'https://overreacted.io',
+    title: 'HNP.CODES',
+    author: 'Prashanth HN',
+    description:
+      'Personal blog by Prashanth HN. I write mostly but not limited to React & Serverless',
+    siteUrl: 'https://hnp.codes',
     social: {
-      twitter: '@dan_abramov',
+      twitter: '@prashanth',
     },
   },
   pathPrefix: '/',
@@ -112,8 +113,8 @@ module.exports = {
                     node {
                       excerpt(pruneLength: 250)
                       html
-                      fields { 
-                        slug   
+                      fields {
+                        slug
                       }
                       frontmatter {
                         title
@@ -126,7 +127,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: "Dan Abramov's Overreacted Blog RSS Feed",
+            title: "Prashanth HN's Blog RSS Feed",
           },
         ],
       },
@@ -134,8 +135,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Overreacted`,
-        short_name: `Overreacted`,
+        name: `HNP.DEV`,
+        short_name: `HNP.DEV`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#ffa7c4`,
