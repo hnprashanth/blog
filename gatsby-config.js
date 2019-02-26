@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'HNP.CODES',
+    title: 'HNP.DEV',
     author: 'Prashanth HN',
     description:
       'Personal blog by Prashanth HN. I write mostly but not limited to React & Serverless',

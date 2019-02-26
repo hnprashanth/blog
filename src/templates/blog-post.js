@@ -6,8 +6,6 @@ import '../fonts/fonts-post.css';
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import Signup from '../components/Signup';
-import Panel from '../components/Panel';
 import { formatPostDate, formatReadingTime } from '../utils/helpers';
 import { rhythm, scale } from '../utils/typography';
 import {
@@ -45,7 +43,7 @@ class BlogPostTemplate extends React.Component {
       enSlug.length - 1
     )}/index${lang === 'en' ? '' : '.' + lang}.md`;
     const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
-      `https://overreacted.io${enSlug}`
+      `https://hnp.dev${enSlug}`
     )}`;
 
     return (
@@ -80,10 +78,6 @@ class BlogPostTemplate extends React.Component {
                 <a href={discussUrl} target="_blank" rel="noopener noreferrer">
                   Discuss on Twitter
                 </a>
-                {` • `}
-                <a href={editUrl} target="_blank" rel="noopener noreferrer">
-                  Edit on GitHub
-                </a>
               </p>
             </footer>
           </article>
@@ -94,9 +88,7 @@ class BlogPostTemplate extends React.Component {
               margin: '90px 0 40px 0',
               fontFamily: systemFont,
             }}
-          >
-            <Signup />
-          </div>
+          />
           <h3
             style={{
               fontFamily: 'Montserrat, sans-serif',
@@ -111,7 +103,7 @@ class BlogPostTemplate extends React.Component {
               }}
               to={'/'}
             >
-              Overreacted
+              HNP.DEV
             </Link>
           </h3>
           <Bio />
