@@ -28,6 +28,17 @@ So what happens when Cognito enters into custom flow? Let's find out:
 
 We need to define these functions in Lambda and configure Cognito as a trigger. Let's create these three functions in Lambda:
 
+####defineAuthChallenge()
+
+```javascript
+export const handler = async (event) => {
+    if (!event.request.session || event.request.session.length === 0) {
+        event.response.challengeMetadata = "CUSTOM_CHALLENGE";
+    }
+    return event;
+};
+```
+
 ####createAuthChallenge()
 
 ```javascript
@@ -46,7 +57,7 @@ exports.handler = async event => {
     event.response.privateChallengeParameters = {
       answer: otp
     };
-    event.response.challengeMetadata = "SMS_OTP";
+    event.response.challengeMetadata = "CUSTOM_CHALLENGE";
   }
   return event;
 };
@@ -82,6 +93,10 @@ exports.handler = async (event, context) => {
 ```
 
 As you can see above, we are comparing the answer entered by user with the answer attribute we set in _createAuthChallenge()_ with Cognito. If they match, then we tell Cognito we are good to go and Cognito will issue tokens to the requested user!
+
+To configure these triggers, visit Cognito User Pool & go to "Triggers" menu. You will see all available triggers, map respective triggers to respective lambda functions
+
+![Cognito Trigger Screenshot](/images/cognito-trigger.png "Cognito Trigger Screenshot")
 
 #### Few more things we need to take care of
 Above implementation only talks about signIn and not new sign ups. Unlike signIn method, signUp requirs a password to be sent. I ended up generating a strong password on the client side and passing it to signUp. This is fine since the user will never need the password to login.
