@@ -96,7 +96,7 @@ As you can see above, we are comparing the answer entered by user with the answe
 
 To configure these triggers, visit Cognito User Pool & go to "Triggers" menu. You will see all available triggers, map respective triggers to respective lambda functions
 
-![Cognito Trigger Screenshot](/images/cognito-trigger.png "Cognito Trigger Screenshot")
+![Cognito Trigger Screenshot](./cognito-trigger.png "Cognito Trigger Screenshot")
 
 #### Few more things we need to take care of
 Above implementation only talks about signIn and not new sign ups. Unlike signIn method, signUp requirs a password to be sent. I ended up generating a strong password on the client side and passing it to signUp. This is fine since the user will never need the password to login.
