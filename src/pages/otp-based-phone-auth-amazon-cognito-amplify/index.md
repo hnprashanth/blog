@@ -23,8 +23,7 @@ Calling Auth.signIn() without password triggers custom auth flow.
 
 So what happens when Cognito enters into custom flow? Let's find out:
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/1a1a23ce-0a77-4446-85bd-f084b3a27b42" id="CAIXmyy.iMlh"></iframe></div>
-
+![Cognito Custom Flow](./cognito-custom-flow.png "Cognito Custom Flow")
 
 We need to define these functions in Lambda and configure Cognito as a trigger. Let's create these three functions in Lambda:
 
