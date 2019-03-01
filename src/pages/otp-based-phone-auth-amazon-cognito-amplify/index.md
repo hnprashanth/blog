@@ -23,10 +23,31 @@ Calling Auth.signIn() without password triggers custom auth flow.
 
 So what happens when Cognito enters into custom flow? Let's find out:
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/1a1a23ce-0a77-4446-85bd-f084b3a27b42" id="CAIXmyy.iMlh"></iframe></div>
-
+![Cognito Custom Flow](./cognito-custom-flow.png "Cognito Custom Flow")
 
 We need to define these functions in Lambda and configure Cognito as a trigger. Let's create these three functions in Lambda:
+
+####defineAuthChallenge()
+
+```javascript
+exports.handler = async (event) => {
+    if (!event.request.session || event.request.session.length === 0) {
+        // If we don't have a session or it is empty then send a CUSTOM_CHALLENGE
+        event.response.challengeName = "CUSTOM_CHALLENGE";
+        event.response.failAuthentication = false;
+        event.response.issueTokens = false;
+    } else if (event.request.session.length === 1 && event.request.session[0].challengeResult === true) {
+        // If we passed the CUSTOM_CHALLENGE then issue token
+        event.response.failAuthentication = false;
+        event.response.issueTokens = true;
+    } else {
+        // Something is wrong. Fail authentication
+        event.response.failAuthentication = true;
+        event.response.issueTokens = false;
+    }
+    return event;
+};
+```
 
 ####createAuthChallenge()
 
@@ -46,7 +67,7 @@ exports.handler = async event => {
     event.response.privateChallengeParameters = {
       answer: otp
     };
-    event.response.challengeMetadata = "SMS_OTP";
+    event.response.challengeMetadata = "CUSTOM_CHALLENGE";
   }
   return event;
 };
@@ -82,6 +103,10 @@ exports.handler = async (event, context) => {
 ```
 
 As you can see above, we are comparing the answer entered by user with the answer attribute we set in _createAuthChallenge()_ with Cognito. If they match, then we tell Cognito we are good to go and Cognito will issue tokens to the requested user!
+
+To configure these triggers, visit Cognito User Pool & go to "Triggers" menu. You will see all available triggers, map respective triggers to respective lambda functions
+
+![Cognito Trigger Screenshot](./cognito-trigger.png "Cognito Trigger Screenshot")
 
 #### Few more things we need to take care of
 Above implementation only talks about signIn and not new sign ups. Unlike signIn method, signUp requirs a password to be sent. I ended up generating a strong password on the client side and passing it to signUp. This is fine since the user will never need the password to login.
