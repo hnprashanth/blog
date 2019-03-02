@@ -8,7 +8,7 @@ Amazon Cognito provides authentication out of the box with support for most of t
 
 Click Login -> Enter Phone -> Receive 6 digit code to phone through Text/SMS -> Enter code -> Login Successful
 
-Unfortunately, this is not natively supported by Cognito unlike Firebase. After some digging I found out about Custom Auth Flow in Cognito which allows developer to implement their own auth flows. AWS Amplify documentation for the same can be found here: https://aws-amplify.github.io/docs/js/authentication#customizing-authentication-flow. Since my was built using React, Amplify was the perfect goto choice.
+Unfortunately, this is not natively supported by Cognito unlike Firebase. After some digging I found out about Custom Auth Flow in Cognito which allows developers to implement their own auth flows. AWS Amplify documentation for the same can be found here: https://aws-amplify.github.io/docs/js/authentication#customizing-authentication-flow. Since my app was built using React, Amplify was the perfect goto choice.
 
 Calling Auth.signIn() without password triggers custom auth flow.
 
