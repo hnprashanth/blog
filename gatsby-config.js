@@ -3,7 +3,7 @@ module.exports = {
     title: 'HNP.DEV',
     author: 'Prashanth HN',
     description:
-      'Personal blog by Prashanth HN. I write mostly but not limited to React & Serverless',
+      'My journey with React, Serverless and everything else that interests me',
     siteUrl: 'https://hnp.codes',
     social: {
       twitter: '@prashanth',
