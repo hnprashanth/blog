@@ -102,7 +102,7 @@ exports.handler = async (event, context) => {
 };
 ```
 
-As you can see above, we are comparing the answer entered by user with the answer attribute we set in _createAuthChallenge()_ with Cognito. If they match, then we tell Cognito we are good to go and Cognito will issue tokens to the requested user!
+As you can see above, we are comparing the answer entered by user with the answer attribute we set in _createAuthChallenge()_ with Cognito. If they match, then we tell Cognito we are good to go and Cognito will issue tokens to the user!
 
 To configure these triggers, visit Cognito User Pool & go to "Triggers" menu. You will see all available triggers, map respective triggers to respective lambda functions
 
@@ -129,10 +129,10 @@ I have configured Cognito to verify phone number on signup, so first time users 
   };
 ```
 
-Another hicup here is that Cognito won't automatically signIn the user after confirmation! Now, if we call signIn() without password, it will trigger another SMS/Text with code, which will annoy the user. To avoid this we need to call signIn() with password. So, we need to keep the password we generated in signup process in the client to reuse here.
+Another hicup here is that Cognito won't automatically signIn the user after confirmation! Now, if we call signIn() without password, it will trigger another SMS/Text with a code, which will annoy the user. To avoid this we need to call signIn() with password. So, we need to keep the password we generated in signup process in the client to reuse here.
 
 ####One final gotcha
 
-When first time user registers and doesn't complete the confirmation step, Cognito keeps the user status as "confirmation pending". Calling the Auth.signUp() next time will fail with error "user already exists". Calling Auth.signIn() will result in "confirmation pending" error. We can't call Auth.signIn() with password since we don't have the password. This puts the account in a limbo! This will not be an edge case since lot of times people enter random numbers when asked for phone number & they never get the OTP/code since they don't own that phone number. This random number could potentially be a real phone number of someone else.
+When first time user registers and doesn't complete the confirmation step, Cognito sets the user status as "confirmation pending". Calling the Auth.signUp() next time will fail with error "user already exists". Calling Auth.signIn() will result in "confirmation pending" error. We can't call Auth.signIn() with password since we don't have the password. This puts the account in a limbo! This will not be an edge case since lot of times people enter random numbers when asked for a phone number & they never get the OTP/code since they don't own that phone number. This random number could potentially be a real phone number of someone else.
 
 To address this issue I came up with a Lambda function which will be called before signup() to check if the account is in this limbo. If it is, I delete the account and tell the client to go with normal user registration process.
