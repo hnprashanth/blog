@@ -1,5 +1,5 @@
 ---
-title: How to trigger Lambda functions periodically or at a spesific time using CloudWatch
+title: How to trigger Lambda functions periodically or at a specific time using CloudWatch
 date: '2019-03-13'
 spoiler: One of the common questions I get asked while talking about serverless is "can we do Cron"?. The answer was always a "Yes" but often I see the other person not convinced!
 ---
