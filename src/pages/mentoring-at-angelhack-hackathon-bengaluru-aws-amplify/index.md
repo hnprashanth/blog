@@ -1,5 +1,5 @@
 ---
-title: Mentoring & at AngelHack Hackathon Bengaluru for AWS Amplify
+title: Mentoring at AngelHack Hackathon Bengaluru for AWS Amplify
 date: '2019-06-10'
 spoiler: It's been a while I had been to Hackathons, the last one being Yahoo hackathon almost a decade ago! When I got a request from AWS to be the mentor for AWS Amplify at AngelHack, I said "sure" with all the excitement!
 ---
