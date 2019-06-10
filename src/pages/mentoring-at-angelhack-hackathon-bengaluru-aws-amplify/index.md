@@ -4,7 +4,7 @@ date: '2019-06-10'
 spoiler: It's been a while I had been to Hackathons, the last one being Yahoo hackathon almost a decade ago! When I got a request from AWS to be the mentor for AWS Amplify at AngelHack, I said "sure" with all the excitement!
 ---
 
-It's been a while I had been to Hackathons, the last one being Yahoo hackathon almost a decade ago! When I got a request from AWS to be the mentor for AWS Amplify at AngelHack, I said "sure" with all the excitement!
+It's been a while I had been to Hackathons since I was completely immersed into my entrepreneurial quest, the last one being Yahoo hackathon almost a decade ago! When I got a request from AWS to be the mentor for AWS Amplify at AngelHack, I said "sure" with all the excitement and nostalgia kicking in!
 
 Harish from AngelHack kicked off the event and announced different challenges and respective prizes and later introduced all mentors. AWS Amplify challenge was ***"Use AWS Amplify to build the best working mobile or web app that connects to at least one AWS service".*** Beginning of the day was quite busy as a mentor for me with many teams lining up to ask questions and doubts! A lot of teams didn't know about Amplify and were curious how they could use Amplify for their project to qualify for AWS Amplify challenge!
 
