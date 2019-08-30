@@ -3,7 +3,7 @@ title: Refactoring to Serverless talk at AWS Community Day Bengaluru
 date: '2019-08-01'
 spoiler: Building great serverless apps means so much more than breaking up your application into functions. Building apps that make full use of the potential of serverless on AWS requires re-thinking the way we approach application architecture
 ---
-For a lot of people serverless = lambda! That's a good start, compute is where everything started for cloud. But serverless goes beyond just using bunch of Lambdas in backend. Me & my friend Adithya used to get frustrated at answering repeatative questions from other friends challenging serverless. So we thought, instead of talking about low hanging fruits which can be done in serverless, let's challenge ourselves into trying to implement what 'we think' would be hard to do on serverless.
+For a lot of people serverless = lambda! That's a good start, compute is where everything started for cloud. But serverless goes beyond just using bunch of Lambdas in backend. Me & my friend Adithya used to get tired at answering repeatative questions from other friends challenging serverless. So we thought, instead of talking about low hanging fruits which can be done in serverless, let's challenge ourselves into trying to implement what 'we think' would be hard to do on serverless.
 
 ### Topics
 - Circuit breakers and retries
